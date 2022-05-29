@@ -12,3 +12,4 @@ And finally run `php artisan serve` command
 ````
 php artisan serve
 ````
+![image description](public/case.png)
