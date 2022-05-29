@@ -11,5 +11,9 @@ php artisan fetch:task
 And finally run `php artisan serve` command
 ````
 php artisan serve
+
+````
+screenshot of the app
+
 ````
 ![image description](public/case.png)
