@@ -1,53 +1,42 @@
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Enuygun ToDo</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
-</head>
-<body>
-<div class="container-fluid bg-dark">
-    <div class="row">
-
-        <div class="col-sm-12">
-            <div class="alert alert-info  my-3" role="alert">
-                Tüm çalışmalar {{ $deadline }} hafta içerisinde sona eriyor.
+    <title>Developer Todo List</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+  </head>
+  <body>
+    <!--END HEAD-->
+    <div class="" style="padding:35px;">
+      <div class="row">
+        <div class="col-sm-12"> @foreach($todoLists as $devName => $weeklyTasks) <div class="card border-info  text-center col-sm-2" style="margin:10px;width: 17.499999995%;
+        flex: 0 0 17.499%;max-width: 17.499%;">
+            <div class="card-header">
+              <a class="card-link" data-toggle="collapse" href="#collapseSECOND">
+                <h3 class="card-title text-dark">{{ $devName }}</h3>
+              </a>
             </div>
-            @foreach($todoLists as $devName => $weeklyTasks)
-                <div class="card mb-1">
-                    <div class="card-header">{{ $devName }}</div>
-                    <div class="card-body">
-                        <div class="row">
-                            @foreach($weeklyTasks as $week => $tasks)
-                                <div class="card border-secondary m-1 col-md-12" style="max-width: 25rem;">
-                                    <div class="card-header">Week {{ $week }}</div>
-                                    <div class="card-body text-secondary">
-                                        <h5>Total Work Hour: {{ $tasks['totalWorkingHour'] }}</h5>
-                                        <hr>
-                                        @php unset($tasks['totalWorkingHour']) @endphp
-                                        @foreach($tasks as $key => $task)
-                                            <p>{{ $task[0] }} ({{ $task[1] }} Hours)</p>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-
-
-        </div>
+            <div id="collapseSECOND" class="collapse show" data-parent="#accordion">
+              <div class="card-body"> @foreach($weeklyTasks as $week => $tasks) <h5 class="card-subtitle mb-2 text-muted">Week {{ $week }} | Total Work Hour: {{ $tasks['totalWorkingHour'] }}</h5>
+                <table class="table table-hover group table-striped">
+                  <table class="table table-hover group table-striped">
+                    <tbody> @php unset($tasks['totalWorkingHour']) @endphp @foreach($tasks as $key => $task) <tr>
+                        <td> {{ $task[0] }} </td>
+                        <td> ({{ $task[1] }}) Hours </td>
+                      </tr> @endforeach
+                      <hr>
+                    </tbody>
+                  </table>
+                </table> @endforeach
+              </div>
+            </div>
+          </div> @endforeach </div>
+      </div>
     </div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </html>
