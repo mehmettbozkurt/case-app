@@ -15,5 +15,4 @@ php artisan serve
 ````
 screenshot of the app
 
-````
 ![image description](public/case.png)
